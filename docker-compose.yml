@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  ecommerceds:
+    image: ecommercedsimageurl
+    build:
+      context: ./eCommerceDs
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Connection=Server=ecommerce-db;Database=ecommerceDs;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;MultipleActiveResultSets=true
+      - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
+    depends_on:
+      - ecommerce-db
+
+  ecommerce-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./.containers/database:/var/opt/mssql/data
+    restart: unless-stopped
+
+volumes:
+  sql_data:
