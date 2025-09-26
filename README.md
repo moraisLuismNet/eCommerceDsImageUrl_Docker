@@ -1,6 +1,6 @@
 ## eCommerceDsImageUrl_Docker
 
-**eCommerceDsImageUrl_Docker** is an ASP.NET Core Web API project. It is the backend service layer for an e-commerce application, focused on data management. The Repository implements the data access logic. The Services contain the application's business logic. Key features implemented in the project include: Authentication and Authorization, User Management, Catalog Management, Shopping Cart Management, and Order Management.
+**eCommerceDsImageUrl_Docker** is an ASP.NET Core 8.0 Web API project. It is the backend service layer for an e-commerce application, focused on data management. The Repository implements the data access logic. The Services contain the application's business logic. Key features implemented in the project include: Authentication and Authorization, User Management, Catalog Management, Shopping Cart Management, and Order Management. It uses SQL Server, Entity Framework Core and JWT for authentication. The API is implemented as a Docker image. Images are not uploaded locally, the https://imgur.com service is used.
 
 ![eCommerceDs_Docker](img/UML.png)
 
